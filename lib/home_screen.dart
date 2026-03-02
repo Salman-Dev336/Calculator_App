@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, sort_child_properties_last
+
 import 'package:calculator_app/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -12,44 +14,25 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       body: SafeArea(
-        child: Column(
-          children: [
-            Text(
-              "Salman Khan",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: greyColor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          child: Column(
+            children: [
+              Container(
+                child: Center(child: Text("Login",
+                style: headingStyle,),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                   color: Colors.orange,
+                ),
+                height: 50,
+               
               ),
-            ),
-            Text(
-              "Salman Khan",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: purpleColor,
-              ),
-            ),
-            
-            Text(
-              "Salman Khan",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color:purpleColor,
-              ),
-            ),
-            Text(
-              "Salman Khan",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color:purpleColor,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
