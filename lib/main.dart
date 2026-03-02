@@ -1,9 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'package:calculator_app/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main(){
-  // runApp(MyApp());
-  print('hello world');
+   runApp(MyApp());
+ 
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
