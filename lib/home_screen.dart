@@ -15,15 +15,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
-              Mybutton(),
-       
-
+              Row(
+                children: [
+                      Mybutton(title: 'AC'),
+                          Mybutton(title: '+/-',),
+                              Mybutton(title: '%',),
+                                  Mybutton(title: '/', color: Colors.orange,),
+                ],
+              )
             ],
           ),
         ),
