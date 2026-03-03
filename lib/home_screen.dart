@@ -20,8 +20,53 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
             children: [
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 child: Center(child: Text("Login",
+                style: headingStyle,),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                   color: Colors.orange,
+                ),
+                height: 50,
+               
+              ),
+              SizedBox(
+                height: 10,
+              ),
+               Container(
+                child: Center(child: Text("Sign Up",
+                style: headingStyle,),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                   color: Colors.orange,
+                ),
+                height: 50,
+               
+              ),
+              SizedBox(
+                height: 10,
+              ),
+               Container(
+                child: Center(child: Text("Verify Account",
+                style: headingStyle,),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                   color: Colors.orange,
+                ),
+                height: 50,
+               
+              ),
+              SizedBox(
+                height: 10,
+              ),
+               Container(
+                child: Center(child: Text("Forgot Password",
                 style: headingStyle,),
                 ),
                 decoration: BoxDecoration(
