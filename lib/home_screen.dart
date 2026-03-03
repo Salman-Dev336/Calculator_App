@@ -12,32 +12,185 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var userInput = '';
+  var answer = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, ),
           child: Column(
             children: [
-              Row(
-                children: [
-                      Mybutton(title: 'AC', onpress :(){
-                        print('tapped');
-                      },),
-                          Mybutton(title: '+/-', onpress :(){
-                        print('tapped');
-                      },),
-                              Mybutton(title: '%', onpress :(){
-                        print('tapped');
-                      },),
-                                  Mybutton(title: '/', color: Colors.orange, onpress :(){
-                        print('tapped');
-                      },
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Column(
+                    children: [
+                      
+                      Text(userInput.toString(), 
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
                       ),
-                ],
-              )
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Mybutton(
+                          title: 'AC',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '+/-',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '%',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '/',
+                          color: Colors.orange,
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Mybutton(
+                          title: '7',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '8',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '9',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: 'x',
+                          color: Colors.orange,
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Mybutton(
+                          title: '4',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '5',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '6',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '-',
+                          color: Colors.orange,
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Mybutton(
+                          title: '1',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '2',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '3',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '+',
+                          color: Colors.orange,
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Mybutton(
+                          title: '0',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '.',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: 'DEL',
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                        Mybutton(
+                          title: '=',
+                          color: Colors.orange,
+                          onpress: () {
+                            print('tapped');
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

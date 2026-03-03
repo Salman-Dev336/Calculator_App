@@ -10,20 +10,23 @@ class Mybutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: InkWell(
-        onTap: onpress,
-        child: Container(
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
-          ),
-          height: 80,
-          child: Center(
-            child: Text(title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: InkWell(
+          onTap: onpress,
+          child: Container(
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.circle,
             ),
+            height: 80,
+            child: Center(
+              child: Text(title,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+              ),
             ),
           ),
         ),
