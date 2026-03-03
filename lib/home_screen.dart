@@ -1,8 +1,9 @@
-// ignore_for_file: avoid_print, unused_import, sized_box_for_whitespace, sort_child_properties_last
+// ignore_for_file: unused_local_variable, avoid_print, unused_import, sized_box_for_whitespace, sort_child_properties_last
 
 import 'package:calculator_app/components/my_button.dart';
 import 'package:calculator_app/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,13 +28,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       
-                      Text(userInput.toString(), 
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text(userInput.toString(), 
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                        ),
                       ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Text(answer.toString(), 
                       style: TextStyle(
@@ -64,7 +73,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         Mybutton(
                           title: '+/-',
                           onpress: () {
-                           userInput = '+/-';
+                          if (userInput.startsWith('-')) {
+  userInput = userInput.substring(1);
+} else {
+  userInput = '-' + userInput;
+}
+setState(() {});
                             setState(() {
                               
                             });
@@ -73,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Mybutton(
                           title: '%',
                           onpress: () {
-                            userInput = '%';
+                            userInput += '%';
                             setState(() {
                               
                             });
@@ -83,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: '/',
                           color: Colors.orange,
                           onpress: () {
-                           userInput = '/';
+                           userInput += '/';
                             setState(() {
                               
                             });   
@@ -96,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Mybutton(
                           title: '7',
                           onpress: () {
-                           userInput = '7';
+                           userInput += '7';
                            setState(() {
                              
                            });
@@ -124,7 +138,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: 'x',
                           color: Colors.orange,
                           onpress: () {
-                            print('tapped');
+                           userInput += 'x';
+                            setState(() {
+                              
+                            });
                           },
                         ),
                       ],
@@ -162,7 +179,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: '-',
                           color: Colors.orange,
                           onpress: () {
-                            print('tapped');
+                            userInput += '-';
+                            setState(() {
+                              
+                            });
                           },
                         ),
                       ],
@@ -200,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: '+',
                           color: Colors.orange,
                           onpress: () {
-                            userInput = '+';  
+                            userInput += '+';  
                             setState(() {
                               
                             });
@@ -231,17 +251,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         Mybutton(
                           title: 'DEL',
                           onpress: () {
-                            print('tapped');
+                            if (userInput.isNotEmpty) {
+  userInput = userInput.substring(0, userInput.length - 1);
+}
+setState(() {});
+                            setState(() {   
+                              
+                            });
                           },
                         ),
                         Mybutton(
                           title: '=',
                           color: Colors.orange,
                           onpress: () {
-                            userInput += '=';
-                            setState(() { 
-                              
-                            });
+                         
+                            equalPress();
                           },
                         ),
                       ],
@@ -255,4 +279,24 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+ void equalPress() {
+  try {
+    String finalInput = userInput;
+
+    // Replace x with *
+    finalInput = finalInput.replaceAll('x', '*');
+
+    GrammarParser p = GrammarParser();
+    Expression exp = p.parse(finalInput);
+
+    ContextModel cm = ContextModel();
+    double eval = exp.evaluate(EvaluationType.REAL, cm);
+
+    answer = eval.toString();
+  } catch (e) {
+    answer = "Error";
+  }
+
+  setState(() {});
+}
 }
