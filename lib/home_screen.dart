@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, sized_box_for_whitespace, sort_child_properties_last
+// ignore_for_file: avoid_print, unused_import, sized_box_for_whitespace, sort_child_properties_last
 
 import 'package:calculator_app/components/my_button.dart';
 import 'package:calculator_app/constant.dart';
@@ -23,10 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Row(
                 children: [
-                      Mybutton(title: 'AC'),
-                          Mybutton(title: '+/-',),
-                              Mybutton(title: '%',),
-                                  Mybutton(title: '/', color: Colors.orange,),
+                      Mybutton(title: 'AC', onpress :(){
+                        print('tapped');
+                      },),
+                          Mybutton(title: '+/-', onpress :(){
+                        print('tapped');
+                      },),
+                              Mybutton(title: '%', onpress :(){
+                        print('tapped');
+                      },),
+                                  Mybutton(title: '/', color: Colors.orange, onpress :(){
+                        print('tapped');
+                      },
+                      ),
                 ],
               )
             ],
